@@ -9,7 +9,7 @@ app "nomad-nodejs-web" {
     enabled = true
 
     data_source "git" {
-      url  = "https://github.com/hashicorp/waypoint-examples.git"
+      url  = "https://github.com/MarkusBansky/waypoint-examples.git"
       path = "nomad/nodejs"
     }
   }
