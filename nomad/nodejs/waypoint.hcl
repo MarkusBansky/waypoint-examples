@@ -5,13 +5,27 @@ project = "nomad-nodejs"
 
 app "nomad-nodejs-web" {
 
+  runner {
+    enabled = true
+
+    data_source "git" {
+      url  = "https://github.com/hashicorp/waypoint-examples.git"
+      path = "nomad/nodejs"
+    }
+  }
+
+
   build {
     use "pack" {}
     registry {
       use "docker" {
-        image = "nomad-nodejs-web"
+        image = "192.168.1.100:5000/nomad-nodejs-web"
         tag   = "1"
-        local = true
+        local = false
+        auth {
+          username = "admin"
+          password = "admin"
+        }
       }
     }
   }
