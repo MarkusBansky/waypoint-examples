@@ -19,12 +19,12 @@ app "nomad-nodejs-web" {
     use "pack" {}
     registry {
       use "docker" {
-        image = "192.168.1.100:5000/nomad-nodejs-web"
+        image = "${var.docker_host}/nomad-nodejs-web"
         tag   = "1"
         local = false
         auth {
-          username = "admin"
-          password = "admin"
+          username = var.docker_user
+          password = var.docker_pass
         }
       }
     }
